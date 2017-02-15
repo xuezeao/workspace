@@ -33,6 +33,10 @@ OperateWindow::OperateWindow(QWidget *parent) :
     change_NewOperate = new ChangeNew(this);
     blake_Operate = new BlakeDelegate(this);
 
+    ui->tableView_showExecuteInfo->setSelectionMode(QAbstractItemView::MultiSelection);//多选
+    ui->tableView_showExecuteInfo->setSelectionBehavior(QAbstractItemView::SelectRows);//每次选择一行
+
+
 
     ui->tableView_showSearchInfo->setHorizontalHeader(pHeader);
     ui->tableView_showSearchInfo->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
