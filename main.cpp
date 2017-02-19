@@ -1,7 +1,6 @@
 #include "mainchoice.h"
 #include "waitingpage.h"
-#include "dummy.h"
-
+#include "dialog_controlthread.h"
 
 #include <QApplication>
 #include <QTimer>
@@ -13,8 +12,9 @@ int main(int argc, char *argv[])
 
 //    MainChoice w;
 //    WaitingPage w;
-
-//    w.show();
+    Dialog_ControlThread w;
+    w.show();
+    qDebug() << "main thread Id: "<<QThread::currentThreadId();
 
     return a.exec();
 }

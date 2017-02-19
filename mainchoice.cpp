@@ -52,6 +52,7 @@ MainChoice::MainChoice(QWidget *parent) :
 
     ui->main_widget->setLayout(frist_layout);
 
+
     connect(choichPage, &QPushButton::clicked, this, &MainChoice::SwitchPage);
     connect(pubilcPage, &QPushButton::clicked, this, &MainChoice::SwitchPage1);
     connect(searchPage, &QPushButton::clicked, this, &MainChoice::SwitchPage2);
