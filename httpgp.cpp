@@ -10,7 +10,10 @@ HttpGP::HttpGP(QObject *parent) :
     accessManager = new QNetworkAccessManager;
     msgBox = new QMessageBox;
 
-    connect(accessManager,SIGNAL(finished(QNetworkReply*)),this,SLOT(finished(QNetworkReply*)));
+
+
+
+    connect(accessManager,SIGNAL(finished(QNetworkReply*)), this, SLOT(finished(QNetworkReply*)), Qt::QueuedConnection);
 
 }
 
@@ -52,6 +55,7 @@ void HttpGP::JuageOperatorStatus(int order)
 
 void HttpGP::JsonForSend(int model_json, QString T_tableName, int allTaskCount)
 {
+
     HttpInit();
 
     http_info->model_json = model_json;
@@ -80,13 +84,40 @@ void HttpGP::HttpInit(void)
     http_info->allTaskCount = 0;
 }
 
-void HttpGP::GetHttp(void)//get cabinet info
+void HttpGP::GetHttp(int order)
+//1：机柜信息 2：心跳包  3：服务器时间
 {
-    http_info->http_modelChoice = 0;
-    http_info->model_json = 0;
+
+    QString address;
+    switch (order) {
+    case 1:
+    {
+        http_info->http_modelChoice = 0;
+        http_info->model_json = 0;
+        address = CABINETNO;
+        break;
+    }
+    case 2:
+    {
+        http_info->http_modelChoice = 17;
+        http_info->model_json = 17;
+        address = "heartBeating";
+        break;
+    }
+    case 3:
+    {
+        http_info->http_modelChoice = 18;
+        http_info->model_json = 18;
+        address = "serverTime";
+        break;
+    }
+    default:
+        break;
+    }
+
     QNetworkRequest *request=new QNetworkRequest();
 //    request->setUrl(QUrl(QString("http://localhost:3000/arm/initialInfo/%1").arg(CABINETNO)));
-    request->setUrl(QUrl(QString("http://121.43.159.215:3000/arm/initialInfo/%1").arg(CABINETNO)));
+    request->setUrl(QUrl(QString("http://121.43.159.215:3000/arm/initialInfo/%1").arg(address)));
     accessManager->get(*request);//通过发送数据，返回值保存在reply指针里.
 }
 
@@ -97,6 +128,8 @@ void HttpGP::PostHttp(int postId_NO, QString postStr)
 //6:入柜完成 7：取完成  8：还完成  9：替换完成 10：报废完成 11：登入 12：点验 13：报警信息 14：任务列表
 //15：网络任务完成上报
 {
+
+
     QString address = "";
 
     switch (postId_NO){
@@ -191,6 +224,8 @@ void HttpGP::PostHttp(int postId_NO, QString postStr)
 
 void HttpGP::finished(QNetworkReply *reply)
 {
+
+    qDebug()<<" current thread id : -----------" << QThread::currentThreadId();
      qDebug() << QDateTime::currentDateTime() << "received";
 
      if (reply->error() == QNetworkReply::NoError)
@@ -219,8 +254,13 @@ void HttpGP::finished(QNetworkReply *reply)
 int HttpGP::UnpackageJson(QJsonDocument str, int t)
 // 0:获取机柜信息 1：获取在位试剂 2：获取试剂类型 4：获取待归还试剂
 //5：分配位置 6：入柜完成上报 7：取完成上报 8：还上报 9：替换 10：报废 11：登入 12:点验 13：报警14:任务列表
-//15:网络任务完成上报
+//15:网络任务完成上报 17:心跳包 18:服务器时间
 {
+
+
+    qDebug() << " current thread Id : UP "<<QThread::currentThreadId();
+
+
     QString    s_str[11]    = {0};//save string
     int        s_int[11]    = {0};//save int value
     int        s_allInfoNum = 0;//save all info number
@@ -248,8 +288,27 @@ int HttpGP::UnpackageJson(QJsonDocument str, int t)
     /***************************/
     s_taskCount = taskHandleCount + 1;
     /*****************************/
+    if (t == 18)
+    {
+        s_json[0] = analyze_Z["success"].toBool();
+        s_success = s_json[0].toBool();
 
-    if (t == 0)
+        if (s_success)
+        {
+            s_json[1] = analyze_Z["serverTime"].toString();
+            s_str[1] = s_json[1].toString();
+            qDebug()<<s_str[1]<<"111111111111111111";
+            return 0;
+        }
+    }
+    else if (t == 17)
+    {
+        s_json[0] = analyze_Z["success"].toBool();
+        s_success = s_json[0].toBool();
+        qDebug()<<s_success<<QThread::currentThreadId()<<"2222222222222222222222222";
+        return 0;
+    }
+    else if (t == 0)
     {
         query.exec(QString("DELETE from T_CabinetInfo"));//机柜信息
 
@@ -994,6 +1053,9 @@ void HttpGP::PackageJson(int model_json, QString T_tableName, int T_tableNo)
 //0:获取机柜信息 1：获取在位试剂 2：获取试剂类型 4：获取待归还试剂  5:请求空闲位置
 //6:入柜完成 7：取完成  8：还完成  9：替换完成 10：报废完成 11：登入 12：点验 13：报警信息 14：任务列表 15：网络任务完成上报
 {
+
+    qDebug() << " current thread id: " <<QThread::currentThreadId();
+
     QJsonObject json_Ok;
     QJsonObject json_Two;
     QJsonDocument document;
@@ -1480,6 +1542,10 @@ void HttpGP::EmitSignal(int status, int order)
 
 
             break;
+        }
+        case 17:
+        {
+            printf("success---heartBeat");
         }
         default:
             break;

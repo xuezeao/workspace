@@ -26,6 +26,9 @@
 /************数据库***************/
 #include <QSqlQuery>
 
+/****************线程操作*******************/
+#include <QThread>
+
 
 class HttpGP : public QObject
 {
@@ -33,7 +36,7 @@ class HttpGP : public QObject
 public:
     explicit HttpGP(QObject *parent = 0);
 
-    void GetHttp(int order);//1:获取机柜信息  2：获取心跳包 3：服务器时间
+//    void GetHttp(int order);//1:获取机柜信息  2：获取心跳包 3：服务器时间
 
     void AgentiaUpdate(int order);//更新常用数据 0：机柜信息 1：在位试剂 2：试剂类型 4：待归还试剂列表 14:tasklist
 
@@ -52,11 +55,15 @@ signals:
 
 public slots:
     void finished(QNetworkReply *reply);
+    void GetHttp(int order);//1:获取机柜信息  2：获取心跳包 3：服务器时间
+
 
 private:
     QSqlQuery query;
     QNetworkAccessManager *accessManager;
     QMessageBox *msgBox;
+
+
 
     enum {ALLOWOPERATE = 3};
 
@@ -95,7 +102,7 @@ private:
     //封装JSON信息
     //0:获取机柜信息 1：获取在位试剂 2：获取试剂类型 4：获取待归还试剂  5:请求空闲位置
     //6:入柜完成 7：取完成  8：还完成  9：替换完成 10：报废完成 11：登入 12：点验 13：报警信息 14：任务列表 15：网络任务完成上报
-
+    //17:心跳包 18:服务器时间
     void PackageJsonForTask(int taskId);
     //封装JSON申请任务完成
     //15:网络任务完成上报

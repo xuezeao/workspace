@@ -10,6 +10,7 @@ QT       += core sql
 QT       += network
 QT       += serialport
 
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = SmartCabinetV0_0_1
@@ -38,7 +39,9 @@ SOURCES += main.cpp\
     uart4stm.cpp \
     waitingpage.cpp \
     delaytime.cpp \
-    workthread.cpp
+    dialog_controlthread.cpp \
+    seriportquery.cpp \
+    wthread.cpp
 
 HEADERS  += mainchoice.h \
     checkboxdelegate.h \
@@ -51,10 +54,13 @@ HEADERS  += mainchoice.h \
     uart4stm.h \
     waitingpage.h \
     delaytime.h \
-    workthread.h
+    dialog_controlthread.h \
+    seriportquery.h \
+    wthread.h
 
 FORMS    += mainchoice.ui \
-    waitingpage.ui
+    waitingpage.ui \
+    dialog_controlthread.ui
 
 DISTFILES += \
     resource/loading.gif
