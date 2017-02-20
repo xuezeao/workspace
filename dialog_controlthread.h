@@ -7,8 +7,9 @@
 #include <QVBoxLayout>
 #include <QTimer>
 #include "httpgp.h"
+#include "httptest.h"
 #include "seriportquery.h"
-
+#include "signinui.h"
 namespace Ui {
 class Dialog_ControlThread;
 }
@@ -32,8 +33,10 @@ private:
     Ui::Dialog_ControlThread *ui;
     QThread *thread_http;
     QThread *thread_query;
+    QThread *thread_httpTest;
     QTimer *timer;
     HttpGP *httpA;
+    HttpTest *httpB;
     SeriportQuery *seriportQuery;
 
 

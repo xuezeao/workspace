@@ -7,7 +7,7 @@ HttpGP::HttpGP(QObject *parent) :
     user = new User;
     http_info = new Http_info;
 
-    accessManager = new QNetworkAccessManager;
+    accessManager = new QNetworkAccessManager(this);
     msgBox = new QMessageBox;
 
 
@@ -94,7 +94,7 @@ void HttpGP::GetHttp(int order)
     {
         http_info->http_modelChoice = 0;
         http_info->model_json = 0;
-        address = CABINETNO;
+        address = QString("initialInfo/%1").arg(CABINETNO);
         break;
     }
     case 2:
@@ -117,7 +117,7 @@ void HttpGP::GetHttp(int order)
 
     QNetworkRequest *request=new QNetworkRequest();
 //    request->setUrl(QUrl(QString("http://localhost:3000/arm/initialInfo/%1").arg(CABINETNO)));
-    request->setUrl(QUrl(QString("http://121.43.159.215:3000/arm/initialInfo/%1").arg(address)));
+    request->setUrl(QUrl(QString("http://121.43.159.215:3000/arm/%1").arg(address)));
     accessManager->get(*request);//通过发送数据，返回值保存在reply指针里.
 }
 

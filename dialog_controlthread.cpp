@@ -1,6 +1,7 @@
 #include "dialog_controlthread.h"
 #include "ui_dialog_controlthread.h"
 #include "wthread.h"
+#include <QVBoxLayout>
 
 Dialog_ControlThread::Dialog_ControlThread(QWidget *parent) :
     QDialog(parent),
@@ -11,12 +12,24 @@ Dialog_ControlThread::Dialog_ControlThread(QWidget *parent) :
     QPushButton *A = new QPushButton(tr("A测试"));
     QPushButton *B = new QPushButton(tr("B测试"));
     QPushButton *C = new QPushButton(tr("C测试"));
+    QPushButton *D = new QPushButton(tr("D test"));
 
     QVBoxLayout *vBL = new QVBoxLayout;
     vBL->addWidget(A);
+    vBL->addSpacerItem(new QSpacerItem(20, 20));
     vBL->addWidget(B);
-
+    vBL->addSpacerItem(new QSpacerItem(20, 20, QSizePolicy::Expanding));
     vBL->addWidget(C);
+    vBL->addSpacing(0);
+    vBL->setMargin(0);
+
+    QHBoxLayout *hBL = new QHBoxLayout;
+
+
+
+    hBL->addWidget(D);
+
+
 
 
 
@@ -29,23 +42,27 @@ Dialog_ControlThread::Dialog_ControlThread(QWidget *parent) :
 
     timer = new QTimer;
 //    connect(timer, SIGNAL(timeout()), this, SLOT(A_pushButton()));
-//    timer->start(5000);
+    timer->start(1000);
 
     thread_http = new QThread;
     thread_query = new QThread;
+    thread_httpTest = new QThread;
     httpA = new HttpGP;
+    httpB = new HttpTest;
     seriportQuery = new SeriportQuery;
 
     httpA->moveToThread(thread_http);
+//    httpA->accessManager->moveToThread(thread_http);
     seriportQuery->moveToThread(thread_query);
 
-//    thread_http->start();
+    thread_http->start();
     thread_query->start();
     connect(this, SIGNAL(startLoop()), seriportQuery, SLOT(requestSTM()));
     connect(this, SIGNAL(http(int)), httpA, SLOT(GetHttp(int)));
+    connect(timer, SIGNAL(timeout()), httpB, SLOT(GetHttpa()));
 
-    WThread hread;
-    hread.start();
+//    WThread hread;
+//    hread.start();
 
 }
 
