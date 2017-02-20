@@ -27,7 +27,6 @@
 #include <QSqlQuery>
 
 /****************线程操作*******************/
-#include <QThread>
 
 
 class HttpGP : public QObject
@@ -35,6 +34,7 @@ class HttpGP : public QObject
     Q_OBJECT
 public:
     explicit HttpGP(QObject *parent = 0);
+    QNetworkAccessManager *accessManager;
 
 //    void GetHttp(int order);//1:获取机柜信息  2：获取心跳包 3：服务器时间
 
@@ -60,7 +60,7 @@ public slots:
 
 private:
     QSqlQuery query;
-    QNetworkAccessManager *accessManager;
+
     QMessageBox *msgBox;
 
 

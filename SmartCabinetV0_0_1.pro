@@ -41,7 +41,9 @@ SOURCES += main.cpp\
     delaytime.cpp \
     dialog_controlthread.cpp \
     seriportquery.cpp \
-    wthread.cpp
+    wthread.cpp \
+    httptest.cpp \
+    signinui.cpp
 
 HEADERS  += mainchoice.h \
     checkboxdelegate.h \
@@ -56,7 +58,9 @@ HEADERS  += mainchoice.h \
     delaytime.h \
     dialog_controlthread.h \
     seriportquery.h \
-    wthread.h
+    wthread.h \
+    httptest.h \
+    signinui.h
 
 FORMS    += mainchoice.ui \
     waitingpage.ui \
