@@ -16,9 +16,6 @@
 #include <QSqlQuery>
 #include <QTimer>
 
-
-
-
 Control::Control(QWidget *parent) : QWidget(parent)
 {
     netcommunication = new NetCommunication;
@@ -36,6 +33,7 @@ Control::Control(QWidget *parent) : QWidget(parent)
     QTimer *timer = new QTimer;
     timer->start(1000);
     connect(timer, SIGNAL(timeout()), this, SLOT(GetVersion()));
+//    this->showFullScreen();
 }
 
 void Control::GetVersion()
