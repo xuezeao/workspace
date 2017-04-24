@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AgentiaInfoChange</class>
+ <widget class="QWidget" name="AgentiaInfoChange">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>850</width>
+    <height>612</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="2,0,2">
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,1,2">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_window" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>700</width>
+           <height>500</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>700</width>
+           <height>500</height>
+          </size>
+         </property>
+         <widget class="QCommandLinkButton" name="pBt_returnPrevious">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>111</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>返回</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_8">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>450</y>
+            <width>71</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>厂家      ：</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_11">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>300</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>详细介绍 ：</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pBt_previousOperate">
+          <property name="geometry">
+           <rect>
+            <x>560</x>
+            <y>430</y>
+            <width>121</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>上一条</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_itemNo">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>50</y>
+            <width>171</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>暂无</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="CMB_bottleCapacity">
+          <property name="geometry">
+           <rect>
+            <x>600</x>
+            <y>260</y>
+            <width>51</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <item>
+           <property name="text">
+            <string>ml</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>g</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="label_newdose">
+          <property name="geometry">
+           <rect>
+            <x>370</x>
+            <y>190</y>
+            <width>111</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>替换存量  ：</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_attribute">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>20</y>
+            <width>141</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>暂无</string>
+          </property>
+         </widget>
+         <widget class="QDateEdit" name="dateEdit_expireDate">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>260</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Adobe Arabic</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="CMB_newdose">
+          <property name="geometry">
+           <rect>
+            <x>600</x>
+            <y>180</y>
+            <width>51</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <item>
+           <property name="text">
+            <string>ml</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>g</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="label_4">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>110</y>
+            <width>91</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>试剂  ID    ：</string>
+          </property>
+         </widget>
+         <widget class="QTextBrowser" name="textBrowser_specification">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>300</y>
+            <width>411</width>
+            <height>131</height>
+           </rect>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;暂无&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_7">
+          <property name="geometry">
+           <rect>
+            <x>460</x>
+            <y>20</y>
+            <width>61</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>类别：</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_newdose">
+          <property name="geometry">
+           <rect>
+            <x>480</x>
+            <y>180</y>
+            <width>111</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>20</pointsize>
+           </font>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_agentiaName">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>90</y>
+            <width>511</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>暂无</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_3">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>80</y>
+            <width>91</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>试剂名称：</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_factory">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>450</y>
+            <width>421</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>暂无</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pBt_nextOperate">
+          <property name="geometry">
+           <rect>
+            <x>560</x>
+            <y>360</y>
+            <width>121</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>下一条</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_dose">
+          <property name="geometry">
+           <rect>
+            <x>480</x>
+            <y>220</y>
+            <width>111</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>20</pointsize>
+           </font>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_chemicalFormula">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>150</y>
+            <width>531</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>暂无</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_bottleCapacity">
+          <property name="geometry">
+           <rect>
+            <x>480</x>
+            <y>260</y>
+            <width>111</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>20</pointsize>
+           </font>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="comboBox_drawerSize">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>210</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10*10*10</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10*10*20</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>20*20*20</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="label_dose">
+          <property name="geometry">
+           <rect>
+            <x>370</x>
+            <y>230</y>
+            <width>111</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>实际存量  ：</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>210</y>
+            <width>111</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>试剂瓶尺寸：</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_6">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>260</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>失效日期  ：</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="CMB_dose">
+          <property name="geometry">
+           <rect>
+            <x>600</x>
+            <y>220</y>
+            <width>51</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <item>
+           <property name="text">
+            <string>ml</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>g</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="label_agentiaID">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>120</y>
+            <width>521</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>暂无</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_9">
+          <property name="geometry">
+           <rect>
+            <x>420</x>
+            <y>50</y>
+            <width>91</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>项目编号：</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_5">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>140</y>
+            <width>91</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>化学式    ：</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_bottle">
+          <property name="geometry">
+           <rect>
+            <x>370</x>
+            <y>270</y>
+            <width>111</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>额定容量 ：</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>-9</y>
+            <width>700</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>700</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>700</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="Line" name="line_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>490</y>
+            <width>700</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>700</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>700</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="Line" name="line_3">
+          <property name="geometry">
+           <rect>
+            <x>690</x>
+            <y>0</y>
+            <width>20</width>
+            <height>500</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>500</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>500</height>
+           </size>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+         <widget class="Line" name="line_4">
+          <property name="geometry">
+           <rect>
+            <x>-14</x>
+            <y>0</y>
+            <width>31</width>
+            <height>500</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>500</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>500</height>
+           </size>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
